@@ -442,7 +442,7 @@ type User struct {
 	RememberHash string    `gorm:"not null;unique_index" json:"-"`
 	RolID        int       `gorm:"not null;default:1" json:"rolid"`
 	Rol          Rol       `gorm:"foreignkey:RolID" json:"rol"`
-	Enabled      int       `gorm:"not null;default:1" json:"activated"`
+	Enabled      bool      `gorm:"not null;default:true" json:"activated"`
 	Photo        string    `gorm:"default:null" json:"photo"`
 	DOB          time.Time `json:"dob"`
 }

@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -60,6 +61,7 @@ func (us *Users) RetrieveUser(context *gin.Context) {
 	// Search the user from the claims by remmember hash
 	user, err := us.us.ByRemember(claims.RemmemberHash)
 	if err != nil {
+    fmt.Println(err)
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		context.Abort()
 		return
