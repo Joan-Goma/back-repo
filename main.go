@@ -10,6 +10,10 @@ import (
 	"neft.web/models"
 )
 
+func init() {
+  gin.SetMode(gin.ReleaseMode)
+}
+
 func main() {
 
 	// Create connection with DB
