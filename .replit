@@ -1,0 +1,21 @@
+run = "go run . -port=:999 -debug=true -debugDB=false -route=log/log.txt"
+entrypoint = "main.go"
+hidden = ["main"]
+# compile = ["go", "build", "-o", "main", "."]
+
+[languages.go]
+pattern = "**/*.go"
+
+[languages.go.languageServer]
+start = "gopls"
+
+[nix]
+channel = "stable-21_11"
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix"]
+
+[deployment]
+run = ["sh", "-c", "go run ."]
+
+
